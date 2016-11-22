@@ -1,0 +1,7 @@
+= Presentation Content
+
+ * Intro: link:presentations/Intro_CF_at_TM.pptx[_Pivotal Cloud Foundry at T-Mobile_]
+ * Session 1: link:presentations/Session_1_Intro_SC.pptx[_Introducing Spring Cloud Netflix_]
+ * Session 2: link:presentations/Session_2_SC_Config.pptx[_Spring Cloud Config_]
+ * Session 3: link:presentations/Session_3_SC_Discovery_LB.pptx[_Spring Cloud Netflix - Service Discovery & Load Balancing_]
+ * Session 4: link:presentations/Session_4_Circuit_Breaker.pptx[_Spring Cloud Netflix - Circuit Breakers_]

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cloud-native-spring
+
+info: # add this section
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+endpoints:
+  health:
+    sensitive: false
+
+security:
+  basic:
+    enabled:  false
+
+management:
+  security:
+    enabled: false
