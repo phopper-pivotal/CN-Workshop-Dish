@@ -13,17 +13,22 @@ This one day hands-on classroom style session will provide developers with hands
 9:30 AM - 10:45 AM::
   * Session 1: link:presentations/Session_1_Intro_SC.pptx[_Introducing Spring Cloud Netflix_]
   * Session 2: link:presentations/Session_2_SC_Config.pptx[_Spring Cloud Config_]
-  * Lab 1: link:labs/lab04/lab04.adoc[Introducing Spring Cloud into Boot Application]
+  * Lab 1: link:labs/lab01/lab01.adoc[Introducing Spring Cloud into Boot Application]
 10:30 AM - 10:45 AM:: Break
 10:45 AM - 12:00 PM::
   * Session 3: link:presentations/Session_3_SC_Discovery_LB.pptx[_Spring Cloud Netflix - Service Discovery & Load Balancing_]
-  * Lab 2: link:labs/lab05/lab05.adoc[Microservice Service Discover and Load Balancing]
+  * Lab 2: link:labs/lab02/lab01.adoc[Microservice Service Discover and Load Balancing]
 12:00 PM - 12:45 PM:: Lunch
 12:45 PM - 1:30 PM::
   * Session 4: link:presentations/Session_4_Circuit_Breaker.pptx[_Spring Cloud Netflix - Circuit Breakers_]
-  * Lab 3: link:labs/lab06/lab06.adoc[Microservice Fault Tolerance with Circuit Breakers]
+  * Lab 3: link:labs/lab03/lab03.adoc[Microservice Fault Tolerance with Circuit Breakers]
 1:30 PM - 2:45 PM::
+  * Session 5: link:presentations/Session_5_Distributed_Tracing.pptx[_Distributed Tracing with Zipkin_]
+  * Lab 4: link:labs/lab04/lab4.adoc[Distributed Tracing with Zipkin]
 2:45 PM - 3:00 PM:: Break
 3:00 PM - 3:45 PM::
+  * Session 6: link:presentations/Session_6_Spring_Cloud_Connectors.pptx[_Spring - Cloud Connectors_]
+  * Lab 5: link:labs/lab05/lab05.adoc[Spring Cloud Connectors]
 3:45 PM - 4:30 PM::
+  * Session 7: link:presentations/Session_7_PCF_1.8_and_beyond.pptx[_Pivotal Cloud Foundry 1.8 and Beyond_]
 4:30 PM:: Wrap-Up and Closing
