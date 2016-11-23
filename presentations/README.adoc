@@ -7,4 +7,4 @@
  * Session 4: link:presentations/Session_4_Circuit_Breaker.pptx[_Spring Cloud Netflix - Circuit Breakers_]
  * Session 5: link:presentations/Session_4_Circuit_Breaker.pptx[_Spring Cloud Netflix - Circuit Breakers_]
  * Session 6: link:presentations/Session_4_Circuit_Breaker.pptx[_Spring Cloud Netflix - Circuit Breakers_]
- * Session 7: link:presentations/PCF Roadmap (current).pptx[_PCF Current State and Roadmap_]
+ * Session 7: link:presentations/PCF_Roadmap_(current).pptx[_PCF Current State and Roadmap_]
