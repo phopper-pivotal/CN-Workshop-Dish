@@ -1,10 +1,13 @@
 = Adding Spring Cloud Config to Boot Application
 
-In this lab we'll utilize Spring Boot and Spring Cloud to configure our application from a configuration dynamically retrieved from a git repository. We'll then deploy it to Pivotal Cloud Foundry and auto-provision an instance of a configuration server using Pivotal Spring Cloud Services.
+In this lab we'll utilize Spring Boot and Spring Cloud to configure an application from a configuration dynamically retrieved from a git repository. We'll then deploy it to Pivotal Cloud Foundry and auto-provision an instance of a configuration server using Pivotal Spring Cloud Services.
+
+== Import Base REST Service
+. We've prepared a base project _cloud-native-spring_, this project will be used as the basis of this lab. Please import this existing project into your favorite IDE.
 
 == Update _Hello_ REST service
 
-. These features are added by adding _spring-cloud-services-starter-config-client_ to the classpath.  Open your Maven POM found here: */cloud-native-spring/pom.xml*.  Add the following spring cloud services dependency:
+. Spring Cloud Config features are introduced by adding _spring-cloud-services-starter-config-client_ to the classpath.  Open your Maven POM found here: */cloud-native-spring/pom.xml*.  Add the following spring cloud services dependency:
 +
 [source, xml]
 ---------------------------------------------------------------------
@@ -202,4 +205,4 @@ Bon Jour World!
 greeting: Bon Jour
 ---------------------------------------------------------------------
 
-. Next we'll learn how to register our service with a service registry and load balance requests using Spring Cloud components.
+ Next we'll learn how to register our service with a service registry and load balance requests using Spring Cloud components.
