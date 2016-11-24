@@ -215,4 +215,4 @@ Bon Jour World!
 greeting: Bon Jour
 ---------------------------------------------------------------------
 
- Next we'll learn how to register our service with a service registry and load balance requests using Spring Cloud components.
+. Next we'll learn how to register our service with a service registry and load balance requests using Spring Cloud components.
