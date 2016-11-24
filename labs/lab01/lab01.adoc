@@ -134,15 +134,25 @@ $ mvn clean spring-boot:run
 +
 image::images/config-scs.jpg[]
 
-. In the resulting details page, select the _standard_, single tenant plan.  Name the instance *config-server*, select the space that you've been using to push all your applications.  At this time you don't need to select a application to bind to the service:
+. In the resulting details page, select the _standard_, single tenant plan.  Name the instance *config-server*, select the space that you've been using to push all your applications.  At this time you don't need to select an application to bind to the service:
 +
 image::images/config-scs1.jpg[]
 
-. After we create the service instance you'll be redirected to _Space_ landing page that lists your apps and services.  We'll need to configure it to be back to a git repository.  Select the manage link listed below your newly created config-server.  You may be prompted to login again.  In the resulting configuration screen enter the following property value and click submit:
+. After we create the service instance you'll be redirected to _Space_ landing page that lists your apps and services.  We'll need to configure it to be back to a git repository.  Select the manage link listed below your newly created config-server service listing.  You may be prompted to login again.
 +
 image::images/config-scs2.jpg[]
 +
-Git URI: https://github.com/azwickey-pivotal/config-repo
+
+. We will need to update the _config-server_ service we just created to use a git repository. This process may take a few minutes, we can check process by running _cf services_ until update has succeeded:
++
+[source, xxmlml]
+---------------------------------------------------------------------
+cf update-service config-server -c '{"git": { "uri": "https://github.com/phopper-pivotal/config-repo" } }'
+---------------------------------------------------------------------
++
+ 
+
+Git URI: https://github.com/phopper-pivotal/config-repo
 +
 ** Leave all the others blank **
 
@@ -198,7 +208,7 @@ Bon Jour World!
 
 . What just happened??  A Spring component within the Spring Cloud Starter Config Client module called a _service connector_ automatically detected that there was a Cloud Config service bound into the application.  The service connector configured the application automatically to connect to the cloud config server and download the configuration and wire it into the application
 
-. If you navigate to the GIT repo we specified for our configuration, https://github.com/azwickey-pivotal/config-repo, you'll see a file named cloud-native-spring.yml.  This filename is the same as our spring.application.name value for our Boot application.  The configuration is read from this file, in our case the following property:
+. If you navigate to the GIT repo we specified for our configuration, https://github.com/phopper-pivotal/config-repo, you'll see a file named cloud-native-spring.yml.  This filename is the same as our spring.application.name value for our Boot application.  The configuration is read from this file, in our case the following property:
 +
 [source, yaml]
 ---------------------------------------------------------------------
