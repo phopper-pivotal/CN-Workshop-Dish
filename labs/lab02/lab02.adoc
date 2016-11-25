@@ -135,6 +135,7 @@ applications:
   timeout: 180
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+    TRUST_CERTS: api.run.haas-93.pez.pivotal.io
   services:
   - config-server
   - service-registry
@@ -229,13 +230,13 @@ We'll also be using the Domain object from our main Boot application.  Add that 
 ---------------------------------------------------------------------
   <dependencyManagement>
     <dependencies>
-        <dependency>		<----- Add this dependency
-            <groupId>io.pivotal.spring.cloud</groupId>
-            <artifactId>spring-cloud-services-dependencies</artifactId>
-            <version>1.2.0.RELEASE</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+        <dependency>							<----- Add this dependency
+            <groupId>io.pivotal.spring.cloud</groupId>			<----- Add this dependency
+            <artifactId>spring-cloud-services-dependencies</artifactId>	<----- Add this dependency
+            <version>1.2.0.RELEASE</version>				<----- Add this dependency
+            <type>pom</type>						<----- Add this dependency
+            <scope>import</scope>					<----- Add this dependency
+        </dependency>							<----- Add this dependency
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
