@@ -1,0 +1,13 @@
+---
+applications:
+- name: cloud-native-spring
+  host: cloud-native-spring-${random-word}
+  memory: 1G
+  instances: 1
+  path: ./target/cloud-native-spring-0.0.1-SNAPSHOT.jar
+  timeout: 180 # to give time for the data to import
+  env:
+    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+    CF_TARGET: https://api.run.pivotal.io
+  services:
+  - config-server

@@ -1,0 +1,11 @@
+info:
+  build:
+    artifact: cloud-native-spring
+    name: cloud-native-spring
+    description: Demo project for Spring Boot
+    version: 0.0.1-SNAPSHOT
+
+endpoints:
+  health:
+    sensitive: false
+
