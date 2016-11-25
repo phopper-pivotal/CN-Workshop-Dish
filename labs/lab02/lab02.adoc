@@ -11,8 +11,33 @@ In this lab we'll utilize Spring Boot and Spring Cloud to configure our applicat
 <dependency>
 	<groupId>io.pivotal.spring.cloud</groupId>
 	<artifactId>spring-cloud-services-starter-service-registry</artifactId>
-	<version>1.0.1.RELEASE</version>
 </dependency>
+---------------------------------------------------------------------
++
+
+. We will also need to add dependency management to the pom.xml. Open you Maven POM found here: */cloud-native-spring/pom.xml*
+. Add the folllowing dependencyManagement section to your POM
++
+[source, xml]
+---------------------------------------------------------------------
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.pivotal.spring.cloud</groupId>
+            <artifactId>spring-cloud-services-dependencies</artifactId>
+            <version>1.2.0.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Brixton.SR6</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ---------------------------------------------------------------------
 +
 
@@ -78,7 +103,7 @@ $ cf create-service p-service-registry standard service-registry
 +
 image::images/registry1.jpg[]
 
-. Spring Cloud® Services uses HTTPS for all client-to-service communication. Spring Cloud Services can add the certificate for you automatically. For this to work, you must set the TRUST_CERTS environment variable on your application to the API endpoint of your Elastic Runtime instance:
+. Spring Cloud Services uses HTTPS for all client-to-service communication. Therefore it can add the certificate for you automatically. For this to work, you must set the TRUST_CERTS environment variable on your application to the API endpoint of your Elastic Runtime instance:
 +
 [source,bash]
 ---------------------------------------------------------------------
