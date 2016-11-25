@@ -74,9 +74,17 @@ public class CloudNativeSpringApplication {
 $ cf create-service p-service-registry standard service-registry
 ---------------------------------------------------------------------
 
-. After you create the service registry instance navigate to your cloudfoundry space in the Apps Manager UI and refresh the page.  You should now see the newly create service registry intance.  Select the manage link to view the registry dashboard.  Note that there are not any registered applications at the moment:
+. After some time the config server instance will be created, navigate to your cloudfoundry space in the Apps Manager UI and refresh the page.  You should now see the newly create service registry intance.  Select the manage link to view the registry dashboard.  Note that there are not any registered applications at the moment:
 +
 image::images/registry1.jpg[]
+
+. Spring Cloud® Services uses HTTPS for all client-to-service communication. Spring Cloud Services can add the certificate for you automatically. For this to work, you must set the TRUST_CERTS environment variable on your application to the API endpoint of your Elastic Runtime instance:
++
+[source,bash]
+---------------------------------------------------------------------
+$ cf set-env cloud-native-spring TRUST_CERTS api.sys.internal-blue.dev.mer.cfdish.io
+---------------------------------------------------------------------
+
 
 . We will now bind our application to our service-registry within our Cloudfoundry deployment manifest.  Add thee additional reference to a the service to the bottom of */cloud-native-spring/manifest.yml* in the services list:
 +
@@ -101,7 +109,6 @@ applications:
   buildpack: java_buildpack_offline
   timeout: 180
   env:
-    CF_TARGET: https://api.cfpoc2.internal.t-mobile.com
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
   services:
   - config-server
@@ -348,7 +355,6 @@ applications:
   buildpack: java_buildpack_offline
   timeout: 180
   env:
-    CF_TARGET: https://api.cfpoc2.internal.t-mobile.com
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
   services:
   - service-registry
