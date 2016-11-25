@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Import(RepositoryRestMvcConfiguration.class) // <---- And this
 public class CloudNativeSpringApplication {
 
+	public static void main(String[] args) {
+		SpringApplication.run(CloudNativeSpringApplication.class, args);
+	}
+
     @Value("${greeting:Hola}")
     private String _greeting;
 
@@ -22,8 +26,4 @@ public class CloudNativeSpringApplication {
     public String hello() {
         return _greeting + " World!";
     }
-
-	public static void main(String[] args) {
-		SpringApplication.run(CloudNativeSpringApplication.class, args);
-	}
 }

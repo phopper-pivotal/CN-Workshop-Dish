@@ -9,7 +9,7 @@ In this lab we'll utilize Spring Boot and Spring Cloud to configure our applicat
 [source, xml]
 ---------------------------------------------------------------------
 <dependency>
-  <groupId>io.pivotal.spring.cloud</groupId>
+	<groupId>io.pivotal.spring.cloud</groupId>
 	<artifactId>spring-cloud-services-starter-service-registry</artifactId>
 	<version>1.0.1.RELEASE</version>
 </dependency>
@@ -23,7 +23,7 @@ In this lab we'll utilize Spring Boot and Spring Cloud to configure our applicat
 @SpringBootApplication
 @RestController
 @EnableJpaRepositories
-@EnableDiscoveryClient
+@EnableDiscoveryClient	// <---- Add this
 @Import(RepositoryRestMvcAutoConfiguration.class)
 public class CloudNativeSpringApplication {
 ---------------------------------------------------------------------
@@ -67,7 +67,7 @@ public class CloudNativeSpringApplication {
 
 == Create Spring Cloud Service Registry instance and deploy application
 
-. Now that our application is ready to read registry with an Eureka instance, we need to deploy one!  This can be done through cloudfoundry using the services marketplace.  Previously we did this through the Marketplace UI, but this time we will use the Cloudfoundry CLI (though we could also do this through the UI:
+. Now that our application is ready to read registry with an Eureka instance, we need to deploy one!  This can be done through cloudfoundry using the services marketplace.  Previously we did this through the Marketplace UI, but this time we will use the Cloudfoundry CLI (though we could also do this through the UI, do note this can take some time:
 +
 [source,bash]
 ---------------------------------------------------------------------
@@ -131,7 +131,7 @@ $ mvn install
 $ cf push -f manifest.yml
 ---------------------------------------------------------------------
 
-. If we now test our application URLs we will no change.  However, if we view the Service Registry dashboard (accessible from the _manage_ link in Apps Manager) you will see that a service named cloud-native-spring has registered:
+. If we now test our application URLs we will see no change.  However, if we view the Service Registry dashboard (accessible from the _manage_ link in Apps Manager) you will see that a service named cloud-native-spring has registered:
 +
 image::images/registry2.jpg[]
 
@@ -141,7 +141,7 @@ image::images/registry2.jpg[]
 
 . Browse to https://start.spring.io
 
-. Generate a Maven Project with Spring Boot 1.2.8.
+. Generate a Maven Project with Spring Boot 1.3.8.
 
 . Fill out the *Project metadata* fields as follows:
 +
@@ -164,7 +164,7 @@ CN-Workshop-TM:
 ├── labs
 │   ├── lab01
 │   │   ├── cloud-native-spring
-│   ├── lab05
+│   ├── lab02
 │   │   ├── cloud-native-spring-ui
 ---------------------------------------------------------------------
 
@@ -175,9 +175,8 @@ CN-Workshop-TM:
 [source, xml]
 ---------------------------------------------------------------------
 <dependency>
-  <groupId>io.pivotal.spring.cloud</groupId>
+	<groupId>io.pivotal.spring.cloud</groupId>
 	<artifactId>spring-cloud-services-starter-service-registry</artifactId>
-	<version>1.0.1.RELEASE</version>
 </dependency>
 ---------------------------------------------------------------------
 +
@@ -186,22 +185,46 @@ We'll also be using the Domain object from our main Boot application.  Add that 
 [source, xml]
 ---------------------------------------------------------------------
 <dependency>
-  <groupId>io.pivotal</groupId>
+	<groupId>io.pivotal</groupId>
 	<artifactId>cloud-native-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 </dependency>
+---------------------------------------------------------------------
+
+To work with Spring Cloud Services service instances, your client application must include the spring-cloud-services-dependencies and spring-cloud-dependencies BOMs.
++
+[source, xml]
+---------------------------------------------------------------------
+  <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.pivotal.spring.cloud</groupId>
+            <artifactId>spring-cloud-services-dependencies</artifactId>
+            <version>1.3.0.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Camden.SR2</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
 ---------------------------------------------------------------------
 
 . Since this UI is going to consume REST services its an awesome opportunity to use Feign.  Feign will handle *ALL* the work of invoking our services and marshalling/unmarshalling JSON into domain objects.  We'll add a Feign Client interface into our app.  Take note of how Feign references the downstream service; its only the name of the service it will lookup from Eureka service registry.  Add the following interface declaration to the _CloudNativeSpringUIApplication_:
 +
 [source,java,numbered]
 ---------------------------------------------------------------------
-  @FeignClient("https://cloud-native-spring")
-	public interface CityClient {
+@FeignClient("https://cloud-native-spring")
+public interface CityClient {
 
-		@RequestMapping(method=RequestMethod.GET, value="/cities", consumes="application/hal+json")
-		Resources<City> getCities();
-	}
+	@RequestMapping(method=RequestMethod.GET, value="/cities", consumes="application/hal+json")
+	Resources<City> getCities();
+}
 ---------------------------------------------------------------------
 +
 We'll also need to add a few annotations to our boot application:
