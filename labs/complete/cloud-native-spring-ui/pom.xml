@@ -41,7 +41,6 @@
 		<dependency>
 			<groupId>io.pivotal.spring.cloud</groupId>
 			<artifactId>spring-cloud-services-starter-service-registry</artifactId>
-			<version>1.0.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>io.pivotal</groupId>
@@ -62,6 +61,13 @@
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-bom</artifactId>
 				<version>7.7.3</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.pivotal.spring.cloud</groupId>
+				<artifactId>spring-cloud-services-dependencies</artifactId>
+				<version>1.2.0.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

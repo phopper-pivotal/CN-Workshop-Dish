@@ -8,6 +8,7 @@ applications:
   timeout: 180 # to give time for the data to import
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
-    CF_TARGET: https://api.run.pivotal.io
+#    CF_TARGET: https://api.run.haas-93.pez.pivotal.io
+    TRUST_CERTS: api.run.haas-93.pez.pivotal.io
   services:
-  - config-server
+  - service-registry
