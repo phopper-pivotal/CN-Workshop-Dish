@@ -16,11 +16,11 @@ import java.util.Collection;
 @Theme("valo")
 public class AppUI extends UI {
 
-    private final CloudNativeSpringUiApplication.CityClient _client;
+    private final CloudNativeSpringUiApplication.CityService _client;
     private final Grid _grid;
 
     @Autowired
-    public AppUI(CloudNativeSpringUiApplication.CityClient client) {
+    public AppUI(CloudNativeSpringUiApplication.CityService client) {
         _client = client;
         _grid = new Grid();
     }

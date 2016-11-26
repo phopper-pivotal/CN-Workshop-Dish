@@ -11,3 +11,4 @@ applications:
     TRUST_CERTS: api.run.haas-93.pez.pivotal.io
   services:
   - service-registry
+  - circuit-breaker-dashboard
