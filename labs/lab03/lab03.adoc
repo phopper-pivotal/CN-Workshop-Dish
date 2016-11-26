@@ -9,9 +9,8 @@ In this lab we'll utilize Spring Boot and Spring Cloud to make our UI Applicatio
 [source, xml]
 ---------------------------------------------------------------------
 <dependency>
-  <groupId>io.pivotal.spring.cloud</groupId>
+	<groupId>io.pivotal.spring.cloud</groupId>
 	<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>
-	<version>1.0.1.RELEASE</version>
 </dependency>
 ---------------------------------------------------------------------
 +
@@ -53,9 +52,9 @@ public class CityService {
 		return _client.getCities();
 	}
 
-	public Resources getCitiesFallback() {
+	public Resources<City> getCitiesFallback() {
 		//We'll just return an empty response
-		return new Resources(Collections.EMPTY_LIST);
+		return new Resources<City>(Collections.EMPTY_LIST);
 	}
 }
 ---------------------------------------------------------------------
