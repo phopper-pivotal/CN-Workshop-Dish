@@ -33,7 +33,7 @@ In this lab we'll utilize Spring Boot and Spring Cloud to make our UI Applicatio
 public class CloudNativeSpringUiApplication {
 ---------------------------------------------------------------------
 
-. When we introduced an @FeignClient into our application we were only required to provide an interface.  In order to wrap this with a circuit breaker we need to refactor some of our logic into a service interface.  Add the following code, which is our service implementation, to the bottom (but still within the class definition) of _io.pivotal.CloudNativeSpringUIApplication_ (/cloud-native-spring-ui/src/main/java/io/pivotal/CloudNativeSpringUIApplication.java).  NOTE - This is made slightly simpler in Spring Cloud Services 1.1, but this isn't GA'd yet.
+. When we introduced an @FeignClient into our application we were only required to provide an interface.  In order to wrap this with a circuit breaker we need to refactor some of our logic into a service interface.  Add the following code, which is our service implementation, to the bottom (but still within the class definition) of _io.pivotal.CloudNativeSpringUIApplication_ (/cloud-native-spring-ui/src/main/java/io/pivotal/CloudNativeSpringUIApplication.java).  NOTE - the @HystrixCommand service method and fallback method both need to have the same return type, otherwise an error will be raised by Hystrix.
 +
 [source, java, numbered]
 ---------------------------------------------------------------------
