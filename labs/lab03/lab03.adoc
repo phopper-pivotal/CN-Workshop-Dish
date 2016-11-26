@@ -14,11 +14,42 @@ In this lab we'll utilize Spring Boot and Spring Cloud to make our UI Applicatio
 </dependency>
 ---------------------------------------------------------------------
 +
-. We also need to add a property to override some dependency management issues.  Add the following property to your Maven POM within the <properties> section:
+. We also need to a dependency in dependencyManagement section of the POM. 
 +
 [source, xml]
 ---------------------------------------------------------------------
-<spring-cloud-connectors.version>1.2.2.RELEASE</spring-cloud-connectors.version>
+<dependencyManagement>
+	<dependencies>
+		<dependency>							<--- Add this
+			<groupId>org.springframework.boot</groupId>		<--- Add this
+			<artifactId>spring-boot-dependencies</artifactId>	<--- Add this
+			<version>1.3.5.RELEASE</version>			<--- Add this
+			<type>pom</type>					<--- Add this
+			<scope>import</scope>					<--- Add this
+		</dependency>							<--- Add this
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-bom</artifactId>
+			<version>7.7.3</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.pivotal.spring.cloud</groupId>
+			<artifactId>spring-cloud-services-dependencies</artifactId>
+			<version>1.2.0.RELEASE</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>Brixton.SR6</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 ---------------------------------------------------------------------
 
 
