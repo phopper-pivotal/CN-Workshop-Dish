@@ -28,7 +28,6 @@ This one day hands-on classroom style session will provide developers with hands
 2:45 PM - 3:00 PM:: Break
 3:00 PM - 3:45 PM::
   * Session 6: link:presentations/Session_6_Spring_Cloud_Connectors.pptx[_Spring - Cloud Connectors_]
-  * Lab 5: link:labs/lab05/lab05.adoc[Spring Cloud Connectors]
 3:45 PM - 4:30 PM::
   * Session 7: link:presentations/PCF_Roadmap_(current).pptx[_PCF Current State & Roadmap_]
 4:30 PM:: Wrap-Up and Closing
