@@ -15,32 +15,6 @@ In this lab we'll utilize Spring Boot and Spring Cloud to configure our applicat
 ---------------------------------------------------------------------
 +
 
-. We will also need to add dependency management to the pom.xml. Open you Maven POM found here: */cloud-native-spring/pom.xml*
-. Add the folllowing dependencyManagement section to your POM
-+
-[source, xml]
----------------------------------------------------------------------
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>io.pivotal.spring.cloud</groupId>
-            <artifactId>spring-cloud-services-dependencies</artifactId>
-            <version>1.2.0.RELEASE</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Brixton.SR6</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
----------------------------------------------------------------------
-+
-
 . Thanks to Spring Cloud instructing your application to register with Eureka is as simple as adding a single annotation to your app! Add an @EnableDiscoveryClient annotation to the class _io.pivotal.CloudNativeSpringApplication_ (/cloud-native-spring/src/main/java/io/pivotal/CloudNativeApplication.java):
 +
 [source, java, numbered]

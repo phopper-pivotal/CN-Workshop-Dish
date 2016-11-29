@@ -1,0 +1,13 @@
+---
+applications:
+- name: zipkin-query-service
+  memory: 512M
+  instances: 1
+  host: zipkin-query-service-${random-word}
+  path: target/zipkin-query-service-1.3.8.RELEASE.jar
+  services:
+    - rabbit
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"

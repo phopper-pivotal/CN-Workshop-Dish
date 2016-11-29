@@ -156,6 +156,13 @@ image::../lab05/images/ui.jpg[]
 ---------------------------------------------------------------------
 $ cf create-service p-circuit-breaker-dashboard standard circuit-breaker-dashboard
 ---------------------------------------------------------------------
++
+.  Hystrix also needs a message queue, so we'll add RabbitMQ as well.
++
+[source,bash]
+---------------------------------------------------------------------
+$ cf create-service p-rabbitmq standard rabbit
+---------------------------------------------------------------------
 
 . If we view the Circuit Breaker Dashboard (accessible from the _manage_ link in Apps Manager) you will see that a dashboard has been deployed but is empty (You may get an _initializing_ message for a few seconds.  This should eventually refresh to a dashboard):
 +
@@ -168,6 +175,7 @@ image::images/dash.jpg[]
   services:
   - service-registry
   - circuit-breaker-dashboard
+  - rabbit
 ---------------------------------------------------------------------
 
 . Push application into Cloud Foundry
