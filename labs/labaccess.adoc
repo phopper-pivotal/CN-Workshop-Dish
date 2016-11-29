@@ -11,7 +11,7 @@
 . Set the API target for the CLI: (set appropriate end point for your environment)
 +
 ----
-$ cf api https://api.sys.internal-blue.dev.mer.cfdish.io --skip-ssl-validation
+$ cf api https://api.sys.sandbox2.cfdish.io --skip-ssl-validation
 ----
 
 . Login to Pivotal Cloudfoundry:
@@ -26,7 +26,7 @@ Follow the prompts
 
 . An alternative to installing the CF CLI is via your PCF Apps Manager interface.
 
-. Navigate in a web browser to https://apps.sys.internal-blue.dev.mer.cfdish.io
+. Navigate in a web browser to https://apps.sys.sandbox2.cfdish.io
 
 . Login to the interface with your email and workshop password. Note the pasword will be supplied by the instructor on the day of delivery.
 
