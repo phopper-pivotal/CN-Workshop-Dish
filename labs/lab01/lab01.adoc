@@ -158,7 +158,7 @@ $ mvn clean spring-boot:run
 
 == Create Spring Cloud Config Server instance
 
-. Now that our application is ready to read its config from a cloud config server, we need to deploy one!  This can be done through cloudfoundry using the services marketplace.  Browse to the marketplace in Pivotal Cloudfoundry Apps Manager, https://api.sys.internal-blue.dev.mer.cfdish.io, navigate to the space you have been using to push your app, and select Config Server:
+. Now that our application is ready to read its config from a cloud config server, we need to deploy one!  This can be done through cloudfoundry using the services marketplace.  Browse to the marketplace in Pivotal Cloudfoundry Apps Manager, https://api.sys.sandbox2.cfdish.io navigate to the space you have been using to push your app, and select Config Server:
 +
 image::images/config-scs.jpg[]
 
@@ -189,7 +189,7 @@ Git URI: https://github.com/phopper-pivotal/config-repo
 [source, yml]
 ---------------------------------------------------------------------
   env:
-    CF_TARGET: https://api.sys.internal-blue.dev.mer.cfdish.io
+    CF_TARGET: https://api.sys.sandbox2.cfdish.io
   services:
   - config-server
 ---------------------------------------------------------------------
@@ -208,7 +208,7 @@ applications:
   buildpack: java_buildpack_offline
   timeout: 180
   env:
-    CF_TARGET: https://api.sys.internal-blue.dev.mer.cfdish.io
+    CF_TARGET: https://api.sys.sandbox2.cfdish.io
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
   services:
   - config-server

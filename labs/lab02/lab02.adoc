@@ -81,7 +81,7 @@ image::images/registry1.jpg[]
 +
 [source,bash]
 ---------------------------------------------------------------------
-$ cf set-env cloud-native-spring TRUST_CERTS api.sys.internal-blue.dev.mer.cfdish.io
+$ cf set-env cloud-native-spring TRUST_CERTS api.sys.sandbox2.cfdish.io
 ---------------------------------------------------------------------
 
 
@@ -109,7 +109,7 @@ applications:
   timeout: 180
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
-    TRUST_CERTS: api.run.haas-93.pez.pivotal.io
+    TRUST_CERTS: api.sys.sandbox2.cfdish.io
   services:
   - config-server
   - service-registry
@@ -363,7 +363,7 @@ applications:
   timeout: 180
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
-    TRUST_CERTS: api.run.haas-93.pez.pivotal.io
+    TRUST_CERTS: api.sys.sandbox2.cfdish.io
   services:
   - service-registry
 ---------------------------------------------------------------------
