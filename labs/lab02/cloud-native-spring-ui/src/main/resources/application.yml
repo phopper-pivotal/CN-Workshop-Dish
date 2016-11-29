@@ -1,0 +1,23 @@
+spring:
+  zipkin:
+    base-url: http://zipkin-query-service-unnymphean-dentil.cfapps.io:80
+
+
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+endpoints:
+  health:
+    sensitive: false
+
+security:
+  basic:
+    enabled:  false
+
+management:
+  security:
+    enabled: false
